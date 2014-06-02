@@ -1,5 +1,5 @@
 jQuery(function() {
-  jQuery.getJSend = function(url, data_success) {
+  jQuery.getJSend = function(url, data, success) {
     var dfd = jQuery.Deferred()
     jQuery.getJSON(url, data, success).
       done(function(data, status, xhr) {
