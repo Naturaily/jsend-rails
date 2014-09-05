@@ -19,4 +19,25 @@ jQuery(function() {
       });
     return dfd.promise();
   }
+
+  jQuery.jsend = function(url, settings) {
+    var dfd = jQuery.Deferred()
+    jQuery.ajax(url, settings).
+      done(function(data, status, xhr) {
+        if (data.status == 'success') {
+          dfd.resolve(data.data)
+        } else if (data.status == 'fail') {
+          dfd.reject(data.data)
+        } else if (data.status == 'error') {
+          console.log("JSend error [" + (data.code || '-') + "]: " + data.message + "(" + JSON.stringify(data.data) +
+                      ")")
+        } else {
+          console.log("Unknown JSend status " + data.status)
+        }
+      }).
+      fail(function(xhr, status, error) {
+        console.log("Ajax error [" + status + "]: " + error)
+      });
+    return dfd.promise();
+  }
 });
