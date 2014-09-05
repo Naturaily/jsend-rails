@@ -20,7 +20,7 @@ module JSend
 
         RSpec::Matchers.define :be_jsend_success do
           match do |response|
-            response.json['status'].should == 'success'
+            response.json['status'] == 'success'
           end
           failure_message do |response|
             "Response should be JSend success"
@@ -33,7 +33,7 @@ module JSend
 
         RSpec::Matchers.define :be_jsend_failure do
           match do |response|
-            response.json['status'].should == 'fail'
+            response.json['status'] == 'fail'
           end
           failure_message do |response|
             "Response should be JSend failure"
@@ -46,7 +46,7 @@ module JSend
 
         RSpec::Matchers.define :be_jsend_error do
           match do |response|
-            response.json['status'].should == 'error'
+            response.json['status'] == 'error'
           end
           failure_message do |response|
             "Response should be JSend error"
