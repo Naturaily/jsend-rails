@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version = JSend::Rails::VERSION.dup
   s.authors = ['Brian Moseley']
   s.email = ['bcm@maz.org']
-  s.homepage = 'http://github.com/utahstreetlabs/jsend-rails'
+  s.homepage = 'http://github.com/bcm/jsend-rails'
   s.description = 'Extensions to Rails for rendering JSend responses'
   s.summary = 'Extends Rails to render JSON responses in the JSend format'
 
