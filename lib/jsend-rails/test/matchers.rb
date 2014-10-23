@@ -7,7 +7,7 @@ module JSend
       module Matchers
         RSpec::Matchers.define :be_json do
           match do |response|
-            response.content_type =~ /^application\/json/
+            response.content_type.to_s =~ /^application\/json/
           end
           failure_message do |response|
             "Response should have application/json content type"
