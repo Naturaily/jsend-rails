@@ -10,18 +10,22 @@ describe JSend::Rails::Controller do
   describe "#render_jsend" do
     let (:c) { C.new }
     let (:envelope) { {status: :success, result: {}} }
+
     before do
-      JSend::Rails::Envelope.should_receive(:compute).and_return(envelope)
+      allow(c).to receive(:render)
+      allow(JSend::Rails::Envelope).to receive(:compute).and_return(envelope)
     end
 
     it "should render json by default" do
-      c.should_receive(:render).with(json: envelope.to_json)
       c.render_jsend({success: {}})
+
+      expect(c).to have_received(:render).with(json: envelope.to_json)
     end
 
     it "should render text if requested" do
-      c.should_receive(:render).with(text: envelope.to_json, layout: true)
       c.render_jsend({success: {}, render: {as: :text, layout: true}})
+
+      expect(c).to have_received(:render).with(text: envelope.to_json, layout: true)
     end
   end
 end
