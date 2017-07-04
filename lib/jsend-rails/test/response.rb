@@ -29,5 +29,4 @@ module JSend
   end
 end
 
-ActionController::TestResponse.send :include, JSend::Rails::Test::Response
 ActionDispatch::TestResponse.send :include, JSend::Rails::Test::Response

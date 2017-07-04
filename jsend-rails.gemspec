@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = 'Extensions to Rails for rendering JSend responses'
   s.summary = 'Extends Rails to render JSON responses in the JSend format'
 
-  s.add_dependency "rails", ">= 3.0.0"
+  s.add_dependency "rails", ">= 5.0.0"
   s.add_development_dependency('rspec')
 
   s.require_path = 'lib'
